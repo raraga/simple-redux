@@ -12,6 +12,8 @@ const reducer = (state = 0, action) => {
       return state + action.payload.value;
     case 'SUBTRACT':
       return state - action.payload.value;
+    case 'MULTIPLY':
+      return state * action.payload.value;
     case 'RESET':
       return 0;
     default:
@@ -20,10 +22,10 @@ const reducer = (state = 0, action) => {
 };
 
 const store = createStore(reducer);
-
 /*/************************
   PART 2: UTILITY METHODS
 /**************************/
+
 
 /**
  * Gets the value of the input field
@@ -61,6 +63,13 @@ const subtract = () => ({
   type: 'SUBTRACT',
   payload: { value: getValue() },
 });
+/**
+ * Action Creator. Returns an action of the type 'SUBTRACT'
+ */
+const multiply = () => ({
+  type: 'MULTIPLY',
+  payload: { value: getValue() },
+});
 
 /**
  * Action Creator. Returns an action of the type 'RESET'
@@ -84,6 +93,11 @@ document.getElementById('add-btn').addEventListener('click', () => {
 // Handle subtract button click
 document.getElementById('subtract-btn').addEventListener('click', () => {
   store.dispatch(subtract());
+});
+
+// Handle multiply button click
+document.getElementById('multiply-btn').addEventListener('click', () => {
+  store.dispatch(multiply());
 });
 
 // Handle reset button click
