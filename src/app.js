@@ -64,7 +64,7 @@ const subtract = () => ({
   payload: { value: getValue() },
 });
 /**
- * Action Creator. Returns an action of the type 'SUBTRACT'
+ * Action Creator. Returns an action of the type 'MULTIPLY'
  */
 const multiply = () => ({
   type: 'MULTIPLY',
